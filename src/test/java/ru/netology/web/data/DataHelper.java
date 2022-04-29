@@ -36,7 +36,7 @@ public class DataHelper {
 
     public static CardInfo getFirstCard(){
         var balance = new DashboardPage();
-        return new CardInfo("5559_0000_0000_0001", "92df3f1c-a033-48e6-8390-206f6b1f56c0", balance.getCardBalance("92df3f1c-a033-48e6-8390-206f6b1f56c0"))
+        return new CardInfo("5559_0000_0000_0001", "92df3f1c-a033-48e6-8390-206f6b1f56c0", balance.getCardBalance("92df3f1c-a033-48e6-8390-206f6b1f56c0"));
     }
 
     public static CardInfo getSecondCardInfo() {
