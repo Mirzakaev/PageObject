@@ -72,33 +72,33 @@ public class MoneyTest {
 
     }
 
-    @Test
-    public void checkTransferWhenAmountMoreBalance() {
-        open("http://localhost:9999/");
-        var loginPage = new LoginPageV2();
-        var authInfo = DataHelper.getAuthInfo();
-        var verificationPage = loginPage.validLogin(authInfo);
-        var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
-        verificationPage.validVerify(verificationCode);
-
-        var firstCardInfo = DataHelper.CardInfo.getFirstCardInfo();
-        var secondCardInfo = DataHelper.CardInfo.getSecondCardInfo();
-        int expectedBalanceFistCard = firstCardInfo.getBalance();
-        int expectedBalanceSecondCard = secondCardInfo.getBalance();
-
-        var moneyTransferPage = new MoneyPage();
-        moneyTransferPage.cardSelection(secondCardInfo.getIdCard());
-        moneyTransferPage.transferMoney("20000", firstCardInfo.getNumberCard());
-
-        var firstCardInfoAfter = DataHelper.CardInfo.getFirstCardInfo();
-        var secondCardInfoAfter = DataHelper.CardInfo.getSecondCardInfo();
-        int actualBalanceFistCard = firstCardInfoAfter.getBalance();
-        int actualBalanceSecondCard = secondCardInfoAfter.getBalance();
-
-        assertEquals(expectedBalanceFistCard, actualBalanceFistCard);
-        assertEquals(expectedBalanceSecondCard, actualBalanceSecondCard);
-
-    }
+//    @Test
+//    public void checkTransferWhenAmountMoreBalance() {
+//        open("http://localhost:9999/");
+//        var loginPage = new LoginPageV2();
+//        var authInfo = DataHelper.getAuthInfo();
+//        var verificationPage = loginPage.validLogin(authInfo);
+//        var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
+//        verificationPage.validVerify(verificationCode);
+//
+//        var firstCardInfo = DataHelper.CardInfo.getFirstCardInfo();
+//        var secondCardInfo = DataHelper.CardInfo.getSecondCardInfo();
+//        int expectedBalanceFistCard = firstCardInfo.getBalance();
+//        int expectedBalanceSecondCard = secondCardInfo.getBalance();
+//
+//        var moneyTransferPage = new MoneyPage();
+//        moneyTransferPage.cardSelection(secondCardInfo.getIdCard());
+//        moneyTransferPage.transferMoney("20000", firstCardInfo.getNumberCard());
+//
+//        var firstCardInfoAfter = DataHelper.CardInfo.getFirstCardInfo();
+//        var secondCardInfoAfter = DataHelper.CardInfo.getSecondCardInfo();
+//        int actualBalanceFistCard = firstCardInfoAfter.getBalance();
+//        int actualBalanceSecondCard = secondCardInfoAfter.getBalance();
+//
+//        assertEquals(expectedBalanceFistCard, actualBalanceFistCard);
+//        assertEquals(expectedBalanceSecondCard, actualBalanceSecondCard);
+//
+//    }
 
 }
 
