@@ -12,10 +12,12 @@ public class DashboardPage {
     private ElementsCollection cards = $$(".list__item div");
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
+    private ElementsCollection rechargeButton = $$(".list__item div");
 
     public DashboardPage() {
         heading.shouldBe(visible);
     }
+
     public int getCardBalance(String id) {
         val text = cards.find(attribute("data-test-id", id)).text();
         return extractBalance(text);
@@ -26,5 +28,9 @@ public class DashboardPage {
         val finish = text.indexOf(balanceFinish);
         val value = text.substring(start + balanceStart.length(), finish);
         return Integer.parseInt(value);
+    }
+
+    public void cardSelection(String inCard) {
+        rechargeButton.find(attribute("data-test-id", inCard)).find(".button__content").click();
     }
 }
